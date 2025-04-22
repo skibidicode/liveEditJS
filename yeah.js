@@ -35,3 +35,5 @@ console.error = function (...args) {
 };
 /*this adds all of the console things into the list 'cLog', i did it like this to make a reset button*/
 
+
+
