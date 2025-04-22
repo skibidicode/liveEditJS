@@ -28,26 +28,26 @@ function startSeq() {
   `;
   document.head.appendChild(style);
 
-  // Trigger fade-in
+  // fadein trigger
   requestAnimationFrame(() => {
     startMsg.style.opacity = "1";
   });
 
-  // Remove everything after 2.5 seconds
+  // delete after 2.5seconds
   setTimeout(() => {
-    // Fade out the message
+    // msg fadeout
     startMsg.style.opacity = "0";
 
-    // Remove the blur
+    // take off blur
     document.querySelectorAll("body > *:not(#sMsg)").forEach(el => {
       el.style.filter = "none";
     });
 
-    // Wait for the fade-out transition to finish before removing elements
+    // wait for fadeout to end vefore removing style and message
     setTimeout(() => {
       startMsg.remove();
       style.remove();
-    }, 500); // matches the fade-out transition duration
+    }, 500); // matches the length of fade-out
   }, 2500);
 }
 
