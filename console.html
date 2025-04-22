@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+#consoleContainer {
+  background: #363636; 
+  padding: 5px; 
+  border-radius: 5px;
+}
+#consoleInputContainer {
+  display: flex;
+  padding: 5px;
+  
+  
+}
+#consoleInputText {
+  width: 70%;
+  background: #757575; 
+  padding: 15px; 
+  border-radius: 5px;
+  color: white;
+
+}
+#consoleInputSubmit {
+  flex: 1;
+  background: #757575; 
+  padding: 15px; 
+  border-radius: 5px;
+  color: white;
+  
+}
+
+#consoleInputText::placeholder {
+  color: #ccc;
+}
+
+</style>
+</head>
+<body>
+
+<div id="consoleContainer">
+<div id="consoleText" style="background: #757575; padding: 15px; border-radius: 5px;">
+outputs go here
+</div>
+<div id="consoleInputContainer">
+<input type="text" id="consoleInputText" placeholder="Input to the console..."/>
+<button type="button" id="consoleInputSubmit">asdf</button>
+</div>
+</div>
+
+
+</body>
+</html>
