@@ -9,27 +9,29 @@ const originalError = console.error;
 // Override console.log
 console.log = function (...args) {
   const message = args.map(String).join(' ');
-  cLog.push("[LOG]: ", message)
+  cLog.push("[LOG]: " + message + "\n");
   originalLog.apply(console, args);
 };
 
 // Override console.info
 console.info = function (...args) {
   const message = args.map(String).join(' ');
-  alert(message);
+  cLog.push("[INFO]: " + message + "\n");
   originalInfo.apply(console, args);
 };
 
 // Override console.warn
 console.warn = function (...args) {
   const message = args.map(String).join(' ');
-  alert(message);
+  cLog.push("[WARN]: " + message + "\n");
   originalWarn.apply(console, args);
 };
 
 // Override console.error
 console.error = function (...args) {
   const message = args.map(String).join(' ');
-  alert(message);
+  cLog.push("[ERROR]: " + message + "\n");
   originalError.apply(console, args);
 };
+/*this adds all of the console things into the list 'cLog', i did it like this to make a reset button*/
+
