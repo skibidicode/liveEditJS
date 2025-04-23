@@ -19,7 +19,7 @@ const CSS = `
     all: unset;
       width: 70%;
       background: #757575; 
-      padding: 5%; 
+      padding: 5px; 
       border-radius: 5px;
       color: white;
     }
@@ -35,15 +35,15 @@ const CSS = `
     all: unset;
       color: #ccc;
     }
-    .info {all: unset; color: lightblue; }
-    .log {all: unset; color: white; }
-    .warn {all: unset; color: yellow;}
-    .error {all: unset; color: red;}
+    .info {color: lightblue; }
+    .log {color: white; }
+    .warn {color: yellow;}
+    .error {color: red;}
     `;
 const HTML = `
 
-<div id="consoleContainer"> <div id="consoleContainerheader" style="color:gray;">Click Here to Drag</div>
-  <div id="consoleText" style="background: #757575; padding: 5%; border-radius: 5px; height: 70%;">
+<div id="consoleContainer"> <div id="consoleContainerheader" style="all:unset; display:block; color:gray;">Click Here to Drag</div>
+  <div id="consoleText" style="all:unset; display:block; background: #757575; padding: 5px; border-radius: 5px; height: 70%; width: 100%;">
     outputs go here
   </div>
   <div id="consoleInputContainer">
@@ -94,11 +94,29 @@ function updateConsole() {
 
   cLog.forEach(entry => {
     const div = document.createElement("div");
-    div.className = entry.type;  // e.g. "log", "warn"
+    div.style.all = 'unset';
+    div.style.display = 'block';
+    // Apply colors manually based on type
+    switch (entry.type) {
+      case 'info':
+        div.style.color = 'lightblue';
+        break;
+      case 'log':
+        div.style.color = 'white';
+        break;
+      case 'warn':
+        div.style.color = 'yellow';
+        break;
+      case 'error':
+        div.style.color = 'red';
+        break;
+    }
+
     div.innerText = entry.message;
     consoleText.appendChild(div);
   });
 }
+
 
 
 // Repeated updater
